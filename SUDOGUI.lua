@@ -1,5 +1,5 @@
 --====================================================
--- SUDO GUI (alpha 0.0.1)
+-- SUDO GUI (alpha 1.1.2)
 -- KEY: 7622134 (NORMAL)
 -- PREFIX: ?
 -- TOGGLE UI: G
@@ -39,7 +39,7 @@ player.CharacterAdded:Connect(bindChar)
 
 -- IMMERSIVE FULL-SCREEN TERMINAL ENVIRONMENT
 local TerminalGui = Instance.new("ScreenGui")
-TerminalGui.Name = "SudoBootTerminal"
+TerminalGui.Name = "Terminal"
 TerminalGui.IgnoreGuiInset = true
 TerminalGui.Parent = PlayerGui
 
@@ -89,8 +89,8 @@ local function promptCommand()
     local indicator = Instance.new("TextLabel")
     indicator.Size = UDim2.fromScale(0.15, 1)
     indicator.BackgroundTransparency = 1
-    indicator.Text = "root@sudo:~# "
-    indicator.TextColor3 = CYAN_ACCENT
+    indicator.Text = "root@Admin "
+    indicator.TextColor3 = PURPLE_ACCENT
     indicator.TextSize = 16
     indicator.Font = Enum.Font.Code
     indicator.TextXAlignment = Enum.TextXAlignment.Left
@@ -119,17 +119,19 @@ local function promptCommand()
 end
 
 -- TERMINAL INTERACTION PROCESSOR LOOP
-printTerm("SUDO SYSTEM CORE v4.1.0-PRODUCTION INITIALIZED", PURPLE_ACCENT)
-printTerm("Type commands to configure ecosystem.", Color3.fromRGB(150, 150, 150))
+printTerm("SYSTEM CORE v4.1.0-PRODUCTION INITIALIZED", PURPLE_ACCENT)
+printTerm("welcome in the terminal Admin. ", Color3.fromRGB(150, 150, 150))
 
 -- Step 1: Install SudoGui
 while true do
     local cmd = promptCommand()
-    if cmd == "sudo install sudogui" then
+    if cmd == "sudo apt install sudogui" then
         printTerm("Fetching setup scripts from main servers...", CYAN_ACCENT)
         task.wait(0.2)
         printTerm("Unpacking assets: [========================================] 100%")
-        printTerm("Ecosystem binary module installed successfully.")
+        printTerm("system binary module installed successfully.")
+       
+        
         break
     else
         printTerm("command not found: " .. tostring(cmd), Color3.fromRGB(240, 50, 50))
@@ -530,8 +532,6 @@ end)
 -- SYSTEM SCRIPT HUB FETCH LIST
 local SCRIPTS = {
     iy = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
-    bn2 = "https://raw.githubusercontent.com/EnesXVC/Breakin2/main/script",
-    dmc = "https://rawscripts.net/raw/Universal-Script-DarkMoon-Client-46431",
     uniadm = "https://rawscripts.net/raw/Universal-Script-un*led-admin-82103",
     antiknock = "https://rawscripts.net/raw/Universal-Script-Anti-Knockback-script-81139",
     ug2 = "https://rawscripts.net/raw/Universal-Script-unexpected-g2-80546"
